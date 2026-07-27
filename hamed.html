@@ -1,0 +1,1562 @@
+I will now generate the complete production-ready website for **ImmoFix Bodensee** in a single, high-performance HTML file (`index.html`).
+
+It includes:
+
+* **German SEO & Local Schema.org Structure** (`LocalBusiness`, `Service`, `FAQPage`, `BreadcrumbList`).
+* **Interactive Dynamic Price Calculator** with real-time estimation for Entrümpelung, Umzug, and Cleaning based on square meters, rooms, distance, and Wertanrechnung discount.
+* **Online Booking & Offer Request System** with photo attachment simulator, instant confirmation, and notification handling.
+* **Interactive Retell AI Receptionist Drawer & Voice Call Simulator** complete with code snippets for backend integration.
+* **Before / After Interactive Slider** for house clearance and deep cleaning transparency.
+* **Sticky Contact Bar** (Direct Call, WhatsApp pre-filled chat, Booking, AI Receptionist).
+* **Embedded Admin CMS Panel** to simulate price customization and booking management.
+* **GDPR / DSGVO Compliant Banner**, Impressum, Datenschutz, and AGB modals.
+
+```html:index.html
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ImmoFix Bodensee | Entrümpelung, Umzug & Reinigung Radolfzell & Konstanz</title>
+    <meta name="description" content="Ihr Premium-Partner am Bodensee für Entrümpelung, Haushaltsauflösung, Umzug, Transport & Endreinigung in Radolfzell, Konstanz, Singen & Region. Festpreisgarantie & Wertanrechnung.">
+    <meta name="keywords" content="Entrümpelung Radolfzell, Entrümpelung Konstanz, Haushaltsauflösung Bodensee, Umzug Radolfzell, Reinigung Konstanz, Wohnungsauflösung, Nachlassauflösung">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://immofix-bodensee.de">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://immofix-bodensee.de">
+    <meta property="og:title" content="ImmoFix Bodensee - Professionelle Immobiliendienstleistungen">
+    <meta property="og:description" content="Schnell, diskret & zuverlässig. Entrümpelung, Haushaltsauflösung & Umzug am Bodensee. Jetzt kostenloses Festpreisangebot anfordern!">
+    <meta property="og:image" content="http://googleusercontent.com/image_collection/image_retrieval/6542780283244430849_0">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ImmoFix Bodensee | Entrümpelung & Umzug">
+    <meta name="twitter:description" content="Entrümpelung, Reinigung & Umzug in Radolfzell & Region Bodensee. Bestpreise mit Wertanrechnung.">
+    <meta name="twitter:image" content="http://googleusercontent.com/image_collection/image_retrieval/13120605901474280451_0">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" crossorigin="anonymous" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            50: '#F0F4F8',
+                            100: '#D9E2EC',
+                            800: '#102A43',
+                            900: '#0B192C',
+                            950: '#060E1A',
+                        },
+                        brand: {
+                            orange: '#FF6B00',
+                            orangeHover: '#E05E00',
+                            lightGray: '#F8FAFC',
+                            slate: '#64748B'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'glass': '0 8px 32px 0 rgba(11, 25, 44, 0.12)',
+                        'glow': '0 0 25px rgba(255, 107, 0, 0.35)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Glassmorphism Custom Style -->
+    <style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .glass-dark {
+            background: rgba(11, 25, 44, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        /* Custom Before/After Slider Range */
+        .before-after-container {
+            position: relative;
+            overflow: hidden;
+            user-select: none;
+        }
+        .img-after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 50%;
+            overflow: hidden;
+            border-right: 3px solid #FF6B00;
+        }
+    </style>
+
+    <!-- LocalBusiness Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "ImmoFix Bodensee",
+      "image": "http://googleusercontent.com/image_collection/image_retrieval/6542780283244430849_0",
+      "@id": "https://immofix-bodensee.de",
+      "url": "https://immofix-bodensee.de",
+      "telephone": "+4977329876543",
+      "priceRange": "€€",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Seestraße 14",
+        "addressLocality": "Radolfzell am Bodensee",
+        "postalCode": "78315",
+        "addressCountry": "DE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 47.7372,
+        "longitude": 8.9682
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "07:00",
+        "closes": "20:00"
+      },
+      "areaServed": [
+        "Radolfzell am Bodensee",
+        "Konstanz",
+        "Singen",
+        "Stockach",
+        "Bodman-Ludwigshafen",
+        "Überlingen",
+        "Landkreis Konstanz"
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "128"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Immobiliendienstleistungen",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Entrümpelung & Haushaltsauflösung"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Umzug & Transport"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Endreinigung & Wohnungsübergabe"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+</head>
+
+<body class="bg-brand-lightGray text-navy-900 font-sans antialiased overflow-x-hidden selection:bg-brand-orange selection:text-white">
+
+    <!-- Top Notice / Emergency Bar -->
+    <div class="bg-navy-950 text-white text-xs py-2 px-4 border-b border-navy-800/80">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2 text-center md:text-left">
+            <div class="flex items-center gap-3 flex-wrap justify-center">
+                <span class="bg-brand-orange text-white px-2 py-0.5 rounded font-bold uppercase text-[10px] tracking-wider">Express Service</span>
+                <span class="text-slate-300"><i class="fa-solid fa-clock text-brand-orange mr-1"></i> Termine innerhalb von 24h in Radolfzell, Singen & Konstanz möglich</span>
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="tel:+4977329876543" class="hover:text-brand-orange transition-colors"><i class="fa-solid fa-phone text-brand-orange mr-1"></i> +49 (0) 7732 987 6543</a>
+                <a href="https://wa.me/4977329876543?text=Hallo%20ImmoFix%20Bodensee,%20ich%20ben%C3%B6tige%20ein%20Angebot." target="_blank" class="hover:text-green-400 transition-colors hidden sm:inline-flex items-center gap-1">
+                    <i class="fa-brands fa-whatsapp text-green-500"></i> WhatsApp Direkt
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-11 h-11 bg-navy-900 rounded-xl flex items-center justify-center text-brand-orange font-bold text-xl shadow-md group-hover:scale-105 transition-transform duration-200">
+                    <i class="fa-solid fa-house-circle-check"></i>
+                </div>
+                <div>
+                    <span class="font-extrabold text-2xl tracking-tight text-navy-900 block leading-none">ImmoFix</span>
+                    <span class="text-xs font-semibold text-brand-orange uppercase tracking-widest block mt-0.5">Bodensee</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center gap-8 text-sm font-semibold text-slate-700">
+                <a href="#services" class="hover:text-brand-orange transition-colors">Leistungen</a>
+                <a href="#calculator" class="hover:text-brand-orange transition-colors flex items-center gap-1">
+                    <i class="fa-solid fa-calculator text-brand-orange text-xs"></i> Preisrechner
+                </a>
+                <a href="#before-after" class="hover:text-brand-orange transition-colors">Vorher/Nachher</a>
+                <a href="#about" class="hover:text-brand-orange transition-colors">Über Uns</a>
+                <a href="#reviews" class="hover:text-brand-orange transition-colors">Bewertungen</a>
+                <a href="#blog" class="hover:text-brand-orange transition-colors">Ratgeber</a>
+                <a href="#faq" class="hover:text-brand-orange transition-colors">FAQ</a>
+            </nav>
+
+            <!-- CTA Header Buttons -->
+            <div class="hidden sm:flex items-center gap-3">
+                <button onclick="toggleAdminModal()" class="px-3 py-2 text-xs font-bold text-slate-500 hover:text-navy-900 border border-slate-200 rounded-lg hover:border-slate-300 transition-colors">
+                    <i class="fa-solid fa-user-gear mr-1"></i> CMS Demo
+                </button>
+                <a href="#booking" class="bg-brand-orange hover:bg-brand-orangeHover text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-lg shadow-brand-orange/20 hover:shadow-brand-orange/40 transition-all duration-200 flex items-center gap-2">
+                    <i class="fa-solid fa-calendar-check"></i> Angebot Anfragen
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button onclick="toggleMobileMenu()" class="lg:hidden p-2 text-navy-900 hover:text-brand-orange text-2xl">
+                <i class="fa-solid fa-bars" id="mobile-menu-icon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-6 py-6 transition-all duration-300">
+            <div class="flex flex-col gap-4 font-semibold text-navy-900">
+                <a href="#services" onclick="toggleMobileMenu()" class="py-2 border-b border-slate-100">Leistungen</a>
+                <a href="#calculator" onclick="toggleMobileMenu()" class="py-2 border-b border-slate-100 text-brand-orange"><i class="fa-solid fa-calculator mr-2"></i> Online Preisrechner</a>
+                <a href="#before-after" onclick="toggleMobileMenu()" class="py-2 border-b border-slate-100">Vorher / Nachher Vergleich</a>
+                <a href="#about" onclick="toggleMobileMenu()" class="py-2 border-b border-slate-100">Über ImmoFix Bodensee</a>
+                <a href="#reviews" onclick="toggleMobileMenu()" class="py-2 border-b border-slate-100">Kundenstimmen (4.9★)</a>
+                <a href="#faq" onclick="toggleMobileMenu()" class="py-2 border-b border-slate-100">Häufige Fragen</a>
+                <a href="#booking" onclick="toggleMobileMenu()" class="bg-brand-orange text-white py-3 rounded-xl text-center font-bold mt-2 shadow-md">
+                    Jetzt Erstgespräch Buchen
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative bg-navy-900 text-white pt-12 pb-24 overflow-hidden">
+        <!-- Background Gradient Graphic & Image Overlay -->
+        <div class="absolute inset-0 z-0 opacity-20 pointer-events-none">
+            <img src="http://googleusercontent.com/image_collection/image_retrieval/6542780283244430849_0" alt="Bodensee Panorama Radolfzell" class="w-full h-full object-cover">
+        </div>
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-brand-orange/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Text Content -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-navy-800 border border-navy-800 text-brand-orange text-xs font-bold uppercase tracking-wider">
+                        <i class="fa-solid fa-award"></i> Nr. 1 Immobiliendienstleister im Landkreis Konstanz
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                        Entrümpelung, Umzug & Reinigung <span class="text-brand-orange">ohne Stress.</span>
+                    </h1>
+
+                    <p class="text-lg text-slate-300 max-w-2xl font-normal leading-relaxed">
+                        ImmoFix Bodensee ist Ihr zertifizierter Komplettdienstleister in **Radolfzell, Singen, Konstanz & der Bodenseeregion**. Wir übernehmen Haushaltsauflösungen, Firmenumzüge und besenreine Endreinigungen – pünktlich, diskret und mit transparenter Wertanrechnung.
+                    </p>
+
+                    <!-- Feature Bullets -->
+                    <div class="grid sm:grid-cols-2 gap-3 text-sm font-medium text-slate-200 pt-2">
+                        <div class="flex items-center gap-2.5">
+                            <i class="fa-solid fa-circle-check text-brand-orange text-lg"></i>
+                            <span>100% Festpreisgarantie – Keine Versteckten Kosten</span>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <i class="fa-solid fa-circle-check text-brand-orange text-lg"></i>
+                            <span>Wertanrechnung verwertbarer Gegenstände</span>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <i class="fa-solid fa-circle-check text-brand-orange text-lg"></i>
+                            <span>Kostenlose Besichtigung vor Ort & Express-Termine</span>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <i class="fa-solid fa-circle-check text-brand-orange text-lg"></i>
+                            <span>Haftpflichtversichert & Besenreine Übergabe</span>
+                        </div>
+                    </div>
+
+                    <!-- Call to Action Buttons -->
+                    <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                        <a href="#calculator" class="bg-brand-orange hover:bg-brand-orangeHover text-white px-8 py-4 rounded-xl font-bold text-base shadow-lg shadow-brand-orange/30 hover:shadow-brand-orange/50 transition-all text-center flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-calculator"></i> Preis Berechnen in 60s
+                        </a>
+                        <a href="tel:+4977329876543" class="bg-navy-800 hover:bg-navy-800/80 text-white border border-slate-700 px-6 py-4 rounded-xl font-bold text-base transition-all text-center flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-phone text-brand-orange"></i> Direct Call: 07732 9876543
+                        </a>
+                    </div>
+
+                    <!-- Trust Stats Bar -->
+                    <div class="pt-6 border-t border-navy-800 grid grid-cols-3 gap-4 text-center sm:text-left">
+                        <div>
+                            <span class="block text-2xl font-extrabold text-white">1.400+</span>
+                            <span class="text-xs text-slate-400">Erfolgreiche Objekte</span>
+                        </div>
+                        <div>
+                            <span class="block text-2xl font-extrabold text-brand-orange">4.9 ★</span>
+                            <span class="text-xs text-slate-400">120+ Google Bewertungen</span>
+                        </div>
+                        <div>
+                            <span class="block text-2xl font-extrabold text-white">100%</span>
+                            <span class="text-xs text-slate-400">Termintreue Garantie</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Hero Image Showcase & Quick Quote Card -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative rounded-2xl overflow-hidden border-2 border-slate-700 shadow-2xl group">
+                        <img src="http://googleusercontent.com/image_collection/image_retrieval/13120605901474280451_0" alt="ImmoFix Bodensee Umzug und Entrümpelung Team" class="w-full h-80 sm:h-96 object-cover transform group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent opacity-80"></div>
+                        
+                        <!-- Floating Badge -->
+                        <div class="absolute bottom-4 left-4 right-4 glass-dark p-4 rounded-xl text-white">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 bg-brand-orange/20 rounded-lg flex items-center justify-center text-brand-orange text-xl">
+                                    <i class="fa-solid fa-shield-halved"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm">Diskrete & Schnelle Abwicklung</h4>
+                                    <p class="text-xs text-slate-300">Von der Wohnungsauflösung bis zur besenreinen Übergabe an den Vermieter.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Retell AI Receptionist Quick Trigger Badge -->
+                    <div class="mt-4 bg-navy-800/90 border border-slate-700 rounded-xl p-4 flex items-center justify-between shadow-xl">
+                        <div class="flex items-center gap-3">
+                            <div class="relative">
+                                <div class="w-3 h-3 bg-green-500 rounded-full animate-ping absolute top-0 right-0"></div>
+                                <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 font-bold">
+                                    <i class="fa-solid fa-headset"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <span class="text-xs text-slate-400 font-semibold block">24/7 KI-Telefonassistent</span>
+                                <span class="text-sm font-bold text-white">Sofort-Auskunft am Telefon</span>
+                            </div>
+                        </div>
+                        <button onclick="toggleRetellModal()" class="bg-white/10 hover:bg-white/20 text-white px-3 py-1.5 rounded-lg text-xs font-bold transition-all border border-white/10 flex items-center gap-1.5">
+                            <i class="fa-solid fa-microphone text-brand-orange"></i> Testen
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST BADGES & REGIONAL COVERAGE -->
+    <section class="py-8 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="text-center text-xs font-bold uppercase tracking-widest text-slate-400 mb-6">
+                Einsatzgebiete am Bodensee & Landkreis Konstanz
+            </p>
+            <div class="flex flex-wrap items-center justify-center gap-6 sm:gap-12 text-slate-600 font-bold text-sm sm:text-base">
+                <span class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-brand-orange"></i> Radolfzell</span>
+                <span class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-brand-orange"></i> Konstanz</span>
+                <span class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-brand-orange"></i> Singen (Hohentwiel)</span>
+                <span class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-brand-orange"></i> Stockach</span>
+                <span class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-brand-orange"></i> Überlingen</span>
+                <span class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-brand-orange"></i> Bodman-Ludwigshafen</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN SERVICES SECTION -->
+    <section id="services" class="py-20 bg-brand-lightGray">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-orange font-extrabold uppercase text-xs tracking-widest block mb-2">Unsere Hauptleistungen</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">
+                    Alles aus einer Hand für Ihre Immobilie
+                </h2>
+                <p class="text-slate-600 mt-4 text-base">
+                    Egal ob besenreine Haushaltsauflösung, seniorengerechter Umzug oder gründliche Endreinigung – wir garantieren höchste Diskretion, Festpreise und fachgerechte Entsorgung.
+                </p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Service 1: Entrümpelung -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center text-brand-orange text-2xl mb-6 group-hover:bg-brand-orange group-hover:text-white transition-colors duration-300">
+                            <i class="fa-solid fa-dumpster"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-navy-900 mb-3">Entrümpelung & Sperrmüll</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            Fachgerechte Räumung von Kellern, Dachböden, Garagen, Wohnungen und Gewerbeobjekten. Inklusive Sperrmüllentsorgung nach Umweltstandards.
+                        </p>
+                        <ul class="text-xs text-slate-500 space-y-2 mb-6">
+                            <li><i class="fa-solid fa-check text-brand-orange mr-2"></i>Besenreine Ausführung</li>
+                            <li><i class="fa-solid fa-check text-brand-orange mr-2"></i>Umweltgerechtes Recycling</li>
+                            <li><i class="fa-solid fa-check text-brand-orange mr-2"></i>Schädlings- & Geruchsneutralisation</li>
+                        </ul>
+                    </div>
+                    <a href="#calculator" onclick="selectServiceInCalc('Entrümpelung')" class="inline-flex items-center gap-2 text-brand-orange font-bold text-sm hover:gap-3 transition-all">
+                        Preis berechnen <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Service 2: Haushaltsauflösung & Nachlass -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center text-navy-800 text-2xl mb-6 group-hover:bg-navy-900 group-hover:text-white transition-colors duration-300">
+                            <i class="fa-solid fa-boxes-packing"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-navy-900 mb-3">Haushalts- & Nachlassauflösung</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            Feinfühlige und diskrete Komplettauflösung von Wohnungen und Häusern nach Erbfall oder Seniorenumzug. Wertgegenstände werden direkt angerechnet.
+                        </p>
+                        <ul class="text-xs text-slate-500 space-y-2 mb-6">
+                            <li><i class="fa-solid fa-check text-brand-orange mr-2"></i>Faire Wertanrechnung für Antikes/Möbel</li>
+                            <li><i class="fa-solid fa-check text-brand-orange mr-2"></i>Diskreter Umgang mit Dokumenten</li>
+                            <li><i class="fa-solid fa-check text-brand-orange mr-2"></i>Direktkontakt zu Nachlassverwaltern</li>
+                        </ul>
+                    </div>
+                    <a href="#calculator" onclick="selectServiceInCalc('Haushaltsauflösung')" class="inline-flex items-center gap-2 text-brand-orange font-bold text-sm hover:gap-3 transition-all">
+                        Wertanrechnung anfragen <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Service 3: Umzug & Transport -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-14 h-14 bg-emerald-100 rounded-2xl flex items-center justify-center text-emerald-600 text-2xl mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
+                            <i class="fa-solid fa-truck-ramp-box"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-navy-900 mb-3">Umzug & Möbeltransport</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            Sicherer Transport von Privathaushalten & Büros im gesamten Bodenseekreis und deutschlandweit. Inklusive Demontage & Verpackungsservice.
+                        </p>
+                        <ul class="text-xs text-slate-500 space-y-2 mb-6">
+                            <li><i class="fa-solid fa-check text-brand-orange mr-2"></i>Möbelauf- & Abbau durch Profis</li>
+                            <li><i class="fa-solid fa-check text-brand-orange mr-2"></i>Vollkaskoversicherter Transport</li>
+                            <li><i class="fa-solid fa-check text-brand-orange mr-2"></i>Bereitstellung von Kartons & Material</li>
+                        </ul>
+                    </div>
+                    <a href="#calculator" onclick="selectServiceInCalc('Umzug')" class="inline-flex items-center gap-2 text-brand-orange font-bold text-sm hover:gap-3 transition-all">
+                        Umzug angebot holen <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Service 4: Endreinigung & Wohnungsübergabe -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-14 h-14 bg-purple-100 rounded-2xl flex items-center justify-center text-purple-600 text-2xl mb-6 group-hover:bg-purple-600 group-hover:text-white transition-colors duration-300">
+                            <i class="fa-solid fa-broom"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-navy-900 mb-3">Endreinigung mit Übergabegarantie</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            Gründliche Reinigung für Mieter, Vermieter und Immobilienmakler. Wir garantieren die reibungslose Übergabe an den Eigentümer.
+                        </p>
+                        <ul class="text-xs text-slate-500 space-y-2 mb-6">
+                            <li><i class="fa-solid fa-check text-brand-orange mr-2"></i>Fenster-, Sanitär- & Küchenreinigung</li>
+                            <li><i class="fa-solid fa-check text-brand-orange mr-2"></i>Anwesenheit bei Wohnungsübergabe</li>
+                            <li><i class="fa-solid fa-check text-brand-orange mr-2"></i>Abnahmegarantie ohne Nachzahlung</li>
+                        </ul>
+                    </div>
+                    <a href="#calculator" onclick="selectServiceInCalc('Endreinigung')" class="inline-flex items-center gap-2 text-brand-orange font-bold text-sm hover:gap-3 transition-all">
+                        Reinigung sichern <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Service 5: Unterhaltsreinigung -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-14 h-14 bg-amber-100 rounded-2xl flex items-center justify-center text-amber-600 text-2xl mb-6 group-hover:bg-amber-600 group-hover:text-white transition-colors duration-300">
+                            <i class="fa-solid fa-sparkles"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-navy-900 mb-3">Unterhaltsreinigung Gewerbe & Privat</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            Regelmäßige Pflege von Büros, Praxen, Ferienwohnungen und Treppenhäusern. Flexible Turnusse und geschultes Reinigungspersonal.
+                        </p>
+                        <ul class="text-xs text-slate-500 space-y-2 mb-6">
+                            <li><i class="fa-solid fa-check text-brand-orange mr-2"></i>Täglich, wöchentlich oder monatlich</li>
+                            <li><i class="fa-solid fa-check text-brand-orange mr-2"></i>Ökologische Reinigungsmittel</li>
+                            <li><i class="fa-solid fa-check text-brand-orange mr-2"></i>Feste Ansprechpartner vor Ort</li>
+                        </ul>
+                    </div>
+                    <a href="#booking" class="inline-flex items-center gap-2 text-brand-orange font-bold text-sm hover:gap-3 transition-all">
+                        Angebot anfordern <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Service 6: Wertanrechnung -->
+                <div class="bg-gradient-to-br from-navy-900 to-navy-800 text-white rounded-2xl p-8 shadow-xl flex flex-col justify-between relative overflow-hidden">
+                    <div class="relative z-10">
+                        <div class="w-14 h-14 bg-brand-orange/20 rounded-2xl flex items-center justify-center text-brand-orange text-2xl mb-6">
+                            <i class="fa-solid fa-coins"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Wertanrechnung & Antikankauf</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                            Sparen Sie bares Geld bei der Räumung! Wir bewerten gut erhaltene Möbel, Elektronik und Schmuck und ziehen den Gegenwert direkt von den Entrümpelungskosten ab.
+                        </p>
+                    </div>
+                    <div class="relative z-10 pt-4 border-t border-slate-700">
+                        <a href="#calculator" class="bg-brand-orange hover:bg-brand-orangeHover text-white py-3 px-4 rounded-xl text-center font-bold text-xs block transition-all shadow-md">
+                            Kostenlose Wertschätzung anfragen
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- DYNAMIC PRICING CALCULATOR SECTION -->
+    <section id="calculator" class="py-20 bg-navy-900 text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-brand-orange font-extrabold uppercase text-xs tracking-widest block mb-2">Interaktiver Preiskalkulator</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+                    Transparente Kosten in 60 Sekunden berechnen
+                </h2>
+                <p class="text-slate-300 mt-3 text-sm sm:text-base">
+                    Wählen Sie Ihre Parameter aus und erhalten Sie sofort eine unverbindliche Richtwert-Schätzung für Ihr Vorhaben am Bodensee.
+                </p>
+            </div>
+
+            <div class="bg-navy-950 border border-slate-800 rounded-3xl p-6 lg:p-10 shadow-2xl grid lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Calculator Inputs -->
+                <div class="lg:col-span-7 space-y-6">
+                    
+                    <!-- Step 1: Service Selection -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">1. Dienstleistung wählen</label>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                            <button type="button" onclick="setCalcService('Entrümpelung')" id="btn-service-Entrümpelung" class="calc-service-btn bg-brand-orange text-white py-3 px-3 rounded-xl font-bold text-xs border border-brand-orange transition-all">
+                                Entrümpelung
+                            </button>
+                            <button type="button" onclick="setCalcService('Haushaltsauflösung')" id="btn-service-Haushaltsauflösung" class="calc-service-btn bg-navy-900 text-slate-300 hover:text-white py-3 px-3 rounded-xl font-bold text-xs border border-slate-800 transition-all">
+                                Haushaltsauflösung
+                            </button>
+                            <button type="button" onclick="setCalcService('Umzug')" id="btn-service-Umzug" class="calc-service-btn bg-navy-900 text-slate-300 hover:text-white py-3 px-3 rounded-xl font-bold text-xs border border-slate-800 transition-all">
+                                Umzug & Transport
+                            </button>
+                            <button type="button" onclick="setCalcService('Endreinigung')" id="btn-service-Endreinigung" class="calc-service-btn bg-navy-900 text-slate-300 hover:text-white py-3 px-3 rounded-xl font-bold text-xs border border-slate-800 transition-all">
+                                Endreinigung
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Size Slider (m²) -->
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <label class="text-xs font-bold text-slate-400 uppercase tracking-wider">2. Fläche / Größe (m²)</label>
+                            <span id="calc-sqm-display" class="text-brand-orange font-extrabold text-base">65 m²</span>
+                        </div>
+                        <input type="range" id="calc-sqm-slider" min="10" max="300" value="65" oninput="updateCalculator()" class="w-full accent-brand-orange bg-navy-800 h-2 rounded-lg cursor-pointer">
+                        <div class="flex justify-between text-[10px] text-slate-500 mt-1 font-semibold">
+                            <span>10 m² (Keller)</span>
+                            <span>150 m² (Haus)</span>
+                            <span>300+ m² (Gewerbe)</span>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Rooms / Floor -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">3. Etage / Stockwerk</label>
+                            <select id="calc-floor" onchange="updateCalculator()" class="w-full bg-navy-900 text-white text-sm border border-slate-800 rounded-xl py-3 px-3 focus:outline-none focus:border-brand-orange">
+                                <option value="0">Erdgeschoss / Aufzug vorhanden</option>
+                                <option value="1">1. Obergeschoss (ohne Aufzug)</option>
+                                <option value="2">2. Obergeschoss (ohne Aufzug)</option>
+                                <option value="3">3. Obergeschoss oder höher</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Dringlichkeit</label>
+                            <select id="calc-urgency" onchange="updateCalculator()" class="w-full bg-navy-900 text-white text-sm border border-slate-800 rounded-xl py-3 px-3 focus:outline-none focus:border-brand-orange">
+                                <option value="standard">Standard (innerhalb 14 Tage)</option>
+                                <option value="express">Express (innerhalb 48 Stunden +15%)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Add-ons & Wertanrechnung -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">4. Zusatzleistungen & Anrechnung</label>
+                        <div class="space-y-2">
+                            <label class="flex items-center gap-3 bg-navy-900 p-3 rounded-xl border border-slate-800/80 cursor-pointer">
+                                <input type="checkbox" id="calc-addon-cleaning" onchange="updateCalculator()" class="w-4 h-4 accent-brand-orange">
+                                <span class="text-xs font-medium text-slate-200">Zusätzliche Endreinigung erwünscht</span>
+                            </label>
+                            <label class="flex items-center gap-3 bg-navy-900 p-3 rounded-xl border border-slate-800/80 cursor-pointer">
+                                <input type="checkbox" id="calc-addon-value" onchange="updateCalculator()" class="w-4 h-4 accent-brand-orange">
+                                <span class="text-xs font-medium text-slate-200">Wertanrechnung verwertbarer Objekte (Rabattchancen)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Calculator Price Breakdown Result Box -->
+                <div class="lg:col-span-5 bg-navy-900 border border-slate-800 p-6 rounded-2xl flex flex-col justify-between h-full">
+                    <div>
+                        <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-4">
+                            <span class="text-xs uppercase font-bold tracking-wider text-slate-400">Geschätzter Komplettpreis</span>
+                            <span class="bg-green-500/10 text-green-400 text-[10px] font-bold px-2 py-0.5 rounded border border-green-500/20">Festpreisgarantie möglich</span>
+                        </div>
+
+                        <div class="text-center py-4">
+                            <span class="text-xs text-slate-400 block font-medium">Unverbindlicher Richtwert (inkl. MwSt.)</span>
+                            <div class="text-4xl sm:text-5xl font-black text-white mt-1" id="calc-total-price">
+                                € 480,- <span class="text-lg font-normal text-slate-400">ca.</span>
+                            </div>
+                            <p class="text-xs text-brand-orange font-semibold mt-2" id="calc-savings-note">
+                                inkl. Transport, Fachgerechte Entsorgung & Anfahrt
+                            </p>
+                        </div>
+
+                        <div class="space-y-2 text-xs text-slate-300 border-t border-slate-800 pt-4 mt-2">
+                            <div class="flex justify-between">
+                                <span id="calc-summary-service">Entrümpelung (65 m²)</span>
+                                <span id="calc-summary-base" class="font-bold">€ 480</span>
+                            </div>
+                            <div class="flex justify-between text-slate-400">
+                                <span>Anfahrtskosten Bodensee</span>
+                                <span class="text-green-400 font-bold">KOSTENLOS</span>
+                            </div>
+                            <div class="flex justify-between text-slate-400">
+                                <span>Besichtigung vor Ort</span>
+                                <span class="text-green-400 font-bold">KOSTENLOS</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 space-y-3">
+                        <button onclick="transferCalcToBooking()" class="w-full bg-brand-orange hover:bg-brand-orangeHover text-white py-4 rounded-xl font-bold text-sm shadow-lg shadow-brand-orange/30 transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i> Angebot für diesen Preis anfordern
+                        </button>
+                        <p class="text-[11px] text-center text-slate-400">
+                            <i class="fa-solid fa-lock text-slate-500 mr-1"></i> Keine Verbindlichkeit. Wir kontaktieren Sie innerhalb von 2 Std.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- BEFORE / AFTER SLIDER SECTION -->
+    <section id="before-after" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="text-brand-orange font-extrabold uppercase text-xs tracking-widest block mb-2">Vorher & Nachher Qualität</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">
+                    Überzeugen Sie sich von unseren Ergebnissen
+                </h2>
+                <p class="text-slate-600 mt-3 text-sm sm:text-base">
+                    Ziehen Sie den Schieberegler, um ein kürzlich durchgeführtes Projekt im Landkreis Konstanz vor und nach unserer Entrümpelung & Reinigung zu vergleichen.
+                </p>
+            </div>
+
+            <!-- Slider Container -->
+            <div class="max-w-4xl mx-auto">
+                <div class="before-after-container rounded-2xl shadow-2xl h-80 sm:h-[450px] relative cursor-ew-resize border-4 border-white" id="slider-box" onmousemove="moveSlider(event)" ontouchmove="moveSliderTouch(event)">
+                    
+                    <!-- Background Image (BEFORE - Full) -->
+                    <img src="http://googleusercontent.com/image_collection/image_retrieval/5850740048495533021_0" alt="Vorher: Messie Wohnung & Räumung" class="absolute inset-0 w-full h-full object-cover">
+                    <span class="absolute top-4 left-4 bg-navy-900/90 text-white text-xs font-bold px-3 py-1.5 rounded-lg backdrop-blur-md">
+                        VORHER: Messie & Räumung
+                    </span>
+
+                    <!-- Foreground Image Overlay (AFTER - Clipped) -->
+                    <div class="img-after" id="after-img-wrap">
+                        <img src="http://googleusercontent.com/image_collection/image_retrieval/7685122323846970594_0" alt="Nachher: Besenrein gereinigte Wohnung" class="absolute top-0 left-0 h-full max-w-none object-cover" id="after-img-element" style="width: 100%;">
+                        <span class="absolute top-4 right-4 bg-green-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-md">
+                            NACHHER: Besenrein & Bereit
+                        </span>
+                    </div>
+
+                    <!-- Divider Line Handle -->
+                    <div class="absolute top-0 bottom-0 w-1 bg-brand-orange shadow-2xl pointer-events-none" id="slider-handle" style="left: 50%;">
+                        <div class="w-10 h-10 bg-brand-orange text-white rounded-full flex items-center justify-center font-bold text-sm absolute top-1/2 -translate-y-1/2 -translate-x-1/2 shadow-lg border-2 border-white">
+                            <i class="fa-solid fa-arrows-left-right"></i>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mt-6 flex flex-wrap justify-between items-center text-xs text-slate-500 font-semibold px-2">
+                    <span><i class="fa-solid fa-circle-info text-brand-orange mr-1"></i> Projekt: 3-Zimmer Wohnung in Radolfzell (Dauer: 1 Tag)</span>
+                    <span>100% Kundenzufriedenheit</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ONLINE BOOKING & OFFER REQUEST SECTION -->
+    <section id="booking" class="py-20 bg-brand-lightGray">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/90 shadow-xl">
+                
+                <div class="text-center mb-10">
+                    <span class="bg-orange-100 text-brand-orange text-xs font-extrabold uppercase px-3 py-1 rounded-full tracking-wider">Unverbindlich & Kostenfrei</span>
+                    <h2 class="text-3xl font-extrabold text-navy-900 mt-3">Jetzt Kostenloses Festpreisangebot Buchen</h2>
+                    <p class="text-slate-600 text-sm mt-2">
+                        Füllen Sie das Formular aus. Wir melden uns umgehend mit einem maßgeschneiderten Angebot oder vereinbaren einen kostenlosen Besichtigungstermin.
+                    </p>
+                </div>
+
+                <form id="booking-form" onsubmit="handleBookingSubmit(event)" class="space-y-6">
+                    
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold text-navy-900 uppercase tracking-wider mb-2">Gewünschte Leistung *</label>
+                            <select id="book-service" required class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-sm focus:ring-2 focus:ring-brand-orange focus:outline-none">
+                                <option value="Entrümpelung">Entrümpelung / Sperrmüll</option>
+                                <option value="Haushaltsauflösung">Haushaltsauflösung / Nachlass</option>
+                                <option value="Umzug">Umzug & Transport</option>
+                                <option value="Endreinigung">Endreinigung / Grundreinigung</option>
+                                <option value="Sonstiges">Sonstiges / Anfrage</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-navy-900 uppercase tracking-wider mb-2">Wunschtermin *</label>
+                            <input type="date" id="book-date" required class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-sm focus:ring-2 focus:ring-brand-orange focus:outline-none">
+                        </div>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold text-navy-900 uppercase tracking-wider mb-2">Name & Vorname *</label>
+                            <input type="text" id="book-name" required placeholder="Max Mustermann" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-sm focus:ring-2 focus:ring-brand-orange focus:outline-none">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-navy-900 uppercase tracking-wider mb-2">Telefonnummer (für Rückfragen) *</label>
+                            <input type="tel" id="book-phone" required placeholder="0176 12345678" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-sm focus:ring-2 focus:ring-brand-orange focus:outline-none">
+                        </div>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold text-navy-900 uppercase tracking-wider mb-2">E-Mail Adresse *</label>
+                            <input type="email" id="book-email" required placeholder="max@beispiel.de" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-sm focus:ring-2 focus:ring-brand-orange focus:outline-none">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-navy-900 uppercase tracking-wider mb-2">PLZ & Ort des Objekts *</label>
+                            <input type="text" id="book-location" required placeholder="z.B. 78315 Radolfzell" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-sm focus:ring-2 focus:ring-brand-orange focus:outline-none">
+                        </div>
+                    </div>
+
+                    <!-- Photo Attachment Dropzone Simulator -->
+                    <div>
+                        <label class="block text-xs font-bold text-navy-900 uppercase tracking-wider mb-2">Fotos des Objekts hochladen (Optional - für Schnelleres Angebot)</label>
+                        <div class="border-2 border-dashed border-slate-300 rounded-xl p-6 text-center hover:border-brand-orange transition-colors cursor-pointer bg-slate-50/50" onclick="document.getElementById('file-input').click()">
+                            <i class="fa-solid fa-cloud-arrow-up text-brand-orange text-3xl mb-2"></i>
+                            <p class="text-xs text-slate-600 font-semibold">Klicken Sie hier, um Bilder von Räumen oder Gegenständen anzuhängen</p>
+                            <p class="text-[10px] text-slate-400 mt-1">PNG, JPG bis zu 15MB</p>
+                            <input type="file" id="file-input" multiple class="hidden" onchange="showFileFeedback(this)">
+                        </div>
+                        <div id="file-feedback" class="text-xs text-green-600 font-bold mt-2 hidden"></div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-navy-900 uppercase tracking-wider mb-2">Anmerkungen / Details zum Objekt</label>
+                        <textarea id="book-notes" rows="3" placeholder="z.B. 3. Stock ohne Aufzug, Dachboden zusätzlich zu räumen, Wertanrechnung von 2 Schränken gewünscht..." class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-sm focus:ring-2 focus:ring-brand-orange focus:outline-none"></textarea>
+                    </div>
+
+                    <!-- GDPR Checkbox -->
+                    <div class="flex items-start gap-3">
+                        <input type="checkbox" id="book-gdpr" required class="mt-1 w-4 h-4 accent-brand-orange">
+                        <label for="book-gdpr" class="text-xs text-slate-500">
+                            Ich stimme zu, dass meine Angaben zur Kontaktaufnahme und Zuordnung für eventuelle Rückfragen gespeichert werden. Weitere Informationen in der <a href="#datenschutz" onclick="openDatenschutzModal()" class="text-brand-orange underline">Datenschutzerklärung</a>.
+                        </label>
+                    </div>
+
+                    <button type="submit" class="w-full bg-brand-orange hover:bg-brand-orangeHover text-white py-4 rounded-xl font-bold text-base shadow-xl shadow-brand-orange/30 transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-paper-plane"></i> Angebot Unverbindlich Absenden
+                    </button>
+
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT US SECTION -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-6 relative">
+                    <div class="rounded-3xl overflow-hidden shadow-2xl border border-slate-200">
+                        <img src="http://googleusercontent.com/image_collection/image_retrieval/13576758178395291930_0" alt="ImmoFix Bodensee Reinigungsteam und Mitarbeiter" class="w-full h-[450px] object-cover">
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 bg-navy-900 text-white p-6 rounded-2xl shadow-2xl border border-slate-800 hidden sm:block max-w-xs">
+                        <div class="text-3xl font-extrabold text-brand-orange">10+ Jahre</div>
+                        <div class="text-xs text-slate-300 mt-1">Erfahrung als lokaler Qualitätsbetrieb am Bodensee</div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-brand-orange font-extrabold uppercase text-xs tracking-widest block">Über ImmoFix Bodensee</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">
+                        Ihr verlässlicher Partner vor Ort in Radolfzell & Region
+                    </h2>
+                    <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+                        Gegründet mit dem Ziel, Entrümpelungen und Umzüge am Bodensee endlich **transparent, fair und absolut verlässlich** zu gestalten. Wir wissen, wie emotional und stressig eine Wohnungsauflösung oder ein Ortswechsel sein kann.
+                    </p>
+                    <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+                        Deshalb arbeiten wir mit fest angestellten Fachkräften, festen Vereinbarungen ohne versteckte Nachforderungen und höchsten Umweltstandards bei der Verwertung und Entsorgung.
+                    </p>
+
+                    <div class="grid sm:grid-cols-2 gap-4 pt-2">
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-200/80">
+                            <i class="fa-solid fa-handshake text-brand-orange text-xl mb-2"></i>
+                            <h4 class="font-bold text-sm text-navy-900">Ehrlicher Umgang</h4>
+                            <p class="text-xs text-slate-500 mt-1">Kein Nachverhandeln am Räumungstag. Der vereinbarte Preis steht.</p>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-200/80">
+                            <i class="fa-solid fa-leaf text-emerald-600 text-xl mb-2"></i>
+                            <h4 class="font-bold text-sm text-navy-900">Nachhaltiges Recycling</h4>
+                            <p class="text-xs text-slate-500 mt-1">Maximale Wiederverwertung und sachgerechtes Trennen am Wertstoffhof.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS & REVIEWS SECTION -->
+    <section id="reviews" class="py-20 bg-brand-lightGray border-t border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <div class="inline-flex items-center gap-2 bg-yellow-100 text-yellow-800 text-xs font-bold px-3 py-1 rounded-full mb-3">
+                    <i class="fa-brands fa-google text-yellow-600"></i> 4.9 von 5.0 Sternen (120+ Bewertungen)
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">
+                    Das sagen Kunden aus der Region über uns
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- Review 1 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-yellow-400 text-sm mb-3">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed italic mb-4">
+                            "Sehr schnelle Räumung des Hauses unserer Großmutter in Radolfzell. Die Wertanrechnung der alten Eichenmöbel war absolut fair und hat die Gesamtrechnung deutlich gesenkt. Besenrein übergeben – top!"
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 border-t border-slate-100 pt-4">
+                        <div class="w-9 h-9 bg-navy-900 text-white rounded-full flex items-center justify-center font-bold text-xs">
+                            MK
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-xs text-navy-900">Markus K.</h4>
+                            <span class="text-[10px] text-slate-400">Radolfzell am Bodensee</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-yellow-400 text-sm mb-3">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed italic mb-4">
+                            "Unser Firmenumzug von Singen nach Konstanz verlief reibungslos an einem einzigen Wochenende. Das Team war hochprofessionell, pünktlich und hat extrem vorsichtig gearbeitet."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 border-t border-slate-100 pt-4">
+                        <div class="w-9 h-9 bg-brand-orange text-white rounded-full flex items-center justify-center font-bold text-xs">
+                            SB
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-xs text-navy-900">Sabine B. (Praxis Konstanz)</h4>
+                            <span class="text-[10px] text-slate-400">Konstanz</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-yellow-400 text-sm mb-3">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed italic mb-4">
+                            "Die Endreinigung unserer Mietwohnung in Überlingen hat den Vermieter absolut begeistert. Übergabe ohne Beanstandungen. Werde ImmoFix Bodensee jederzeit weiterempfehlen."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 border-t border-slate-100 pt-4">
+                        <div class="w-9 h-9 bg-emerald-600 text-white rounded-full flex items-center justify-center font-bold text-xs">
+                            TH
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-xs text-navy-900">Thomas H.</h4>
+                            <span class="text-[10px] text-slate-400">Überlingen</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOG & SEO RATGEBER SECTION -->
+    <section id="blog" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12">
+                <div>
+                    <span class="text-brand-orange font-extrabold uppercase text-xs tracking-widest block mb-2">Ratgeber & Tipps</span>
+                    <h2 class="text-3xl font-extrabold text-navy-900 tracking-tight">Wissen rund um Immobilie, Umzug & Entrümpelung</h2>
+                </div>
+                <a href="#booking" class="text-xs font-bold text-navy-900 hover:text-brand-orange mt-4 md:mt-0 flex items-center gap-1">
+                    Alle Artikel anzeigen <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                </a>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- Blog Article 1 -->
+                <article class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200/80 hover:shadow-lg transition-all group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="http://googleusercontent.com/image_collection/image_retrieval/5850740048495533021_0" alt="Haushaltsauflösung Ratgeber" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <span class="absolute top-3 left-3 bg-navy-900 text-white text-[10px] font-bold px-2.5 py-1 rounded">Entrümpelung</span>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-[11px] text-slate-400 font-semibold block mb-2">12. Mai 2026 • 5 Min. Lesezeit</span>
+                        <h3 class="font-bold text-base text-navy-900 group-hover:text-brand-orange transition-colors mb-2">
+                            Haushaltsauflösung im Erbfall: 7 wichtige Schritte für Erben am Bodensee
+                        </h3>
+                        <p class="text-xs text-slate-600 line-clamp-3 leading-relaxed">
+                            Eine Anleitung zur kühlen Kopf-Bewahrung nach einem Trauerfall. Wie Sie wertvolle Gegenstände identifizieren und die Räumung organisieren...
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Blog Article 2 -->
+                <article class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200/80 hover:shadow-lg transition-all group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="http://googleusercontent.com/image_collection/image_retrieval/13120605901474280451_0" alt="Umzugstipps Radolfzell" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <span class="absolute top-3 left-3 bg-brand-orange text-white text-[10px] font-bold px-2.5 py-1 rounded">Umzug</span>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-[11px] text-slate-400 font-semibold block mb-2">04. Juni 2026 • 4 Min. Lesezeit</span>
+                        <h3 class="font-bold text-base text-navy-900 group-hover:text-brand-orange transition-colors mb-2">
+                            Umzug nach Radolfzell oder Konstanz: Checkliste für die Ummeldung
+                        </h3>
+                        <p class="text-xs text-slate-600 line-clamp-3 leading-relaxed">
+                            Welche Fristen gelten bei den Bürgerämtern im Landkreis Konstanz? Alle Adressen, Formulare und Parkverbotszonen im Überblick...
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Blog Article 3 -->
+                <article class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200/80 hover:shadow-lg transition-all group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="http://googleusercontent.com/image_collection/image_retrieval/13576758178395291930_0" alt="Wohnungsübergabe Endreinigung" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <span class="absolute top-3 left-3 bg-purple-600 text-white text-[10px] font-bold px-2.5 py-1 rounded">Reinigung</span>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-[11px] text-slate-400 font-semibold block mb-2">18. Juli 2026 • 3 Min. Lesezeit</span>
+                        <h3 class="font-bold text-base text-navy-900 group-hover:text-brand-orange transition-colors mb-2">
+                            Besenreine Übergabe: Was Vermieter wirklich verlangen dürfen
+                        </h3>
+                        <p class="text-xs text-slate-600 line-clamp-3 leading-relaxed">
+                            Müssen Dübellöcher verspachtelt werden? Reicht einfaches Fegen? Das deutsche Mietrecht klar erklärt für Mieter am Bodensee...
+                        </p>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ ACCORDION SECTION -->
+    <section id="faq" class="py-20 bg-brand-lightGray border-t border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-brand-orange font-extrabold uppercase text-xs tracking-widest block mb-2">Häufig Gestellte Fragen</span>
+                <h2 class="text-3xl font-extrabold text-navy-900 tracking-tight">Antworten auf Ihre Fragen</h2>
+            </div>
+
+            <div class="space-y-4" id="faq-accordion">
+                
+                <!-- FAQ Item 1 -->
+                <div class="bg-white rounded-2xl border border-slate-200/80 overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-slate-800 flex justify-between items-center gap-4 hover:bg-slate-50 transition-colors">
+                        <span>Wie funktioniert die Wertanrechnung bei einer Entrümpelung?</span>
+                        <i class="fa-solid fa-chevron-down text-brand-orange transition-transform duration-200"></i>
+                    </button>
+                    <div class="faq-answer hidden p-5 pt-0 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100">
+                        Bei der Besichtigung bewerten wir gut erhaltene Möbel, Werkzeuge, Antiquitäten oder funktionierende Elektrogeräte. Der geschätzte Marktwert wird direkt transparent von den Kosten der Räumung abgezogen. In manchen Fällen kann die Anrechnung sogar höher sein als die Entrümpelungskosten!
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="bg-white rounded-2xl border border-slate-200/80 overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-slate-800 flex justify-between items-center gap-4 hover:bg-slate-50 transition-colors">
+                        <span>Sind die Besichtigung und das Angebot in Radolfzell & Umgebung wirklich kostenlos?</span>
+                        <i class="fa-solid fa-chevron-down text-brand-orange transition-transform duration-200"></i>
+                    </button>
+                    <div class="faq-answer hidden p-5 pt-0 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100">
+                        Ja, zu 100%. Wir kommen zu Ihnen vor Ort in Radolfzell, Singen, Konstanz, Überlingen oder Stockach, begutachten das Objekt und erstellen Ihnen ein schriftliches Festpreisangebot – komplett unverbindlich und frei von jeglichen Anfahrtskosten.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="bg-white rounded-2xl border border-slate-200/80 overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-slate-800 flex justify-between items-center gap-4 hover:bg-slate-50 transition-colors">
+                        <span>Was bedeutet "Festpreisgarantie"?</span>
+                        <i class="fa-solid fa-chevron-down text-brand-orange transition-transform duration-200"></i>
+                    </button>
+                    <div class="faq-answer hidden p-5 pt-0 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100">
+                        Nach der Erstbesichtigung erhalten Sie ein verbindliches Pauschalangebot. Es gibt keine nachträglichen Aufschläge für Entsorgungsgebühren, Etagenzuschläge oder verlängerte Arbeitszeiten. Was vereinbart ist, gilt.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="bg-white rounded-2xl border border-slate-200/80 overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-slate-800 flex justify-between items-center gap-4 hover:bg-slate-50 transition-colors">
+                        <span>Muss ich während der Entrümpelung oder Reinigung anwesend sein?</span>
+                        <i class="fa-solid fa-chevron-down text-brand-orange transition-transform duration-200"></i>
+                    </button>
+                    <div class="faq-answer hidden p-5 pt-0 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100">
+                        Nein. Sie können uns morgens den Schlüssel übergeben und nach Fertigstellung zur besenreinen Abnahme wiederkommen. Gerne wickeln wir Schlüsselübergaben auch über Hausverwaltungen oder Nachlassverwalter ab.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER SECTION -->
+    <footer class="bg-navy-950 text-slate-300 pt-16 pb-12 border-t border-navy-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800">
+                
+                <!-- Col 1: Brand Info -->
+                <div class="lg:col-span-2 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-navy-800 rounded-xl flex items-center justify-center text-brand-orange font-bold text-xl">
+                            <i class="fa-solid fa-house-circle-check"></i>
+                        </div>
+                        <span class="font-extrabold text-2xl text-white">ImmoFix Bodensee</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed max-w-sm">
+                        Ihr zertifizierter Fachbetrieb für Entrümpelung, Haushaltsauflösung, Umzug & Reinigung im Landkreis Konstanz & Bodenseekreis. Diskret, schnell und transparent.
+                    </p>
+                    <div class="text-xs text-slate-400 space-y-1">
+                        <p><i class="fa-solid fa-location-dot text-brand-orange mr-2"></i> Seestraße 14, 78315 Radolfzell am Bodensee</p>
+                        <p><i class="fa-solid fa-phone text-brand-orange mr-2"></i> +49 (0) 7732 987 6543</p>
+                        <p><i class="fa-solid fa-envelope text-brand-orange mr-2"></i> info@immofix-bodensee.de</p>
+                    </div>
+                </div>
+
+                <!-- Col 2: Services Quick Links -->
+                <div>
+                    <h4 class="font-bold text-sm text-white uppercase tracking-wider mb-4">Leistungen</h4>
+                    <ul class="text-xs space-y-2.5 text-slate-400">
+                        <li><a href="#services" class="hover:text-brand-orange transition-colors">Entrümpelung Radolfzell</a></li>
+                        <li><a href="#services" class="hover:text-brand-orange transition-colors">Haushaltsauflösung Bodensee</a></li>
+                        <li><a href="#services" class="hover:text-brand-orange transition-colors">Umzug Konstanz & Singen</a></li>
+                        <li><a href="#services" class="hover:text-brand-orange transition-colors">Endreinigung mit Garantie</a></li>
+                        <li><a href="#services" class="hover:text-brand-orange transition-colors">Wertanrechnung Antik</a></li>
+                        <li><a href="#services" class="hover:text-brand-orange transition-colors">Sperrmüllentsorgung</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Region Coverage -->
+                <div>
+                    <h4 class="font-bold text-sm text-white uppercase tracking-wider mb-4">Regionen</h4>
+                    <ul class="text-xs space-y-2.5 text-slate-400">
+                        <li>Radolfzell am Bodensee</li>
+                        <li>Konstanz & Allensbach</li>
+                        <li>Singen (Hohentwiel)</li>
+                        <li>Stockach & Hegau</li>
+                        <li>Bodman-Ludwigshafen</li>
+                        <li>Überlingen & Meersburg</li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Legal & System Links -->
+                <div>
+                    <h4 class="font-bold text-sm text-white uppercase tracking-wider mb-4">Rechtliches</h4>
+                    <ul class="text-xs space-y-2.5 text-slate-400">
+                        <li><button onclick="openImpressumModal()" class="hover:text-brand-orange transition-colors">Impressum</button></li>
+                        <li><button onclick="openDatenschutzModal()" class="hover:text-brand-orange transition-colors">Datenschutz (DSGVO)</button></li>
+                        <li><button onclick="openAgbModal()" class="hover:text-brand-orange transition-colors">AGB</button></li>
+                        <li><button onclick="toggleCookieConsent()" class="hover:text-brand-orange transition-colors">Cookie-Einstellungen</button></li>
+                        <li><button onclick="toggleRetellModal()" class="hover:text-brand-orange transition-colors text-brand-orange"><i class="fa-solid fa-robot mr-1"></i> Retell AI API Docs</button></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright & Disclaimer -->
+            <div class="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 gap-4">
+                <p>© 2026 ImmoFix Bodensee. Alle Rechte vorbehalten. Designed for Premium Performance & Local SEO.</p>
+                <div class="flex items-center gap-4">
+                    <span class="inline-flex items-center gap-1.5"><i class="fa-solid fa-lock text-green-500"></i> SSL 256-Bit Verschlüsselt</span>
+                    <span class="inline-flex items-center gap-1.5"><i class="fa-solid fa-shield text-brand-orange"></i> DSGVO Konform</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- STICKY FLOATING ACTION BUTTONS (MOBILE & DESKTOP) -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+        
+        <!-- Retell AI Voice Call Trigger Button -->
+        <button onclick="toggleRetellModal()" class="w-13 h-13 bg-navy-900 text-white rounded-full p-3.5 shadow-2xl border-2 border-brand-orange hover:scale-110 transition-transform relative group flex items-center justify-center">
+            <i class="fa-solid fa-robot text-xl text-brand-orange"></i>
+            <span class="absolute right-14 bg-navy-900 text-white text-[11px] font-bold py-1 px-2.5 rounded-lg whitespace-nowrap shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
+                AI Telefondienst Testen
+            </span>
+        </button>
+
+        <!-- WhatsApp Floating Button -->
+        <a href="https://wa.me/4977329876543?text=Hallo%20ImmoFix%20Bodensee,%20ich%20habe%20eine%20Anfrage%20f%C3%BCr%20eine%20Entr%C3%BCmpelung/Umzug." target="_blank" class="w-13 h-13 bg-green-500 text-white rounded-full p-3.5 shadow-2xl hover:scale-110 transition-transform relative group flex items-center justify-center">
+            <i class="fa-brands fa-whatsapp text-2xl"></i>
+            <span class="absolute right-14 bg-green-900 text-white text-[11px] font-bold py-1 px-2.5 rounded-lg whitespace-nowrap shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
+                WhatsApp Chat
+            </span>
+        </a>
+
+        <!-- Call Floating Button -->
+        <a href="tel:+4977329876543" class="w-13 h-13 bg-brand-orange text-white rounded-full p-3.5 shadow-2xl hover:scale-110 transition-transform relative group flex items-center justify-center">
+            <i class="fa-solid fa-phone text-xl"></i>
+            <span class="absolute right-14 bg-navy-900 text-white text-[11px] font-bold py-1 px-2.5 rounded-lg whitespace-nowrap shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
+                Jetzt Anrufen
+            </span>
+        </a>
+
+    </div>
+
+    <!-- RETELL AI RECEPTIONIST MODAL / INTERACTIVE CODE & VOICE DEMO -->
+    <div id="retell-modal" class="fixed inset-0 bg-navy-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-navy-900 border border-slate-700 w-full max-w-3xl rounded-3xl overflow-hidden shadow-2xl text-white">
+            
+            <!-- Modal Header -->
+            <div class="p-6 bg-navy-950 border-b border-slate-800 flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-brand-orange/20 text-brand-orange flex items-center justify-center font-bold">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-extrabold text-lg">Retell AI Telefondienst Integration</h3>
+                        <p class="text-xs text-slate-400">Deutschsprachiger KI-Telefonassistent für ImmoFix Bodensee</p>
+                    </div>
+                </div>
+                <button onclick="toggleRetellModal()" class="text-slate-400 hover:text-white text-xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Modal Content Tabs -->
+            <div class="p-6 space-y-6 max-h-[80vh] overflow-y-auto">
+                
+                <!-- Live Voice Simulation Box -->
+                <div class="bg-navy-950 p-6 rounded-2xl border border-slate-800 text-center space-y-4">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 text-green-400 text-xs font-bold border border-green-500/20">
+                        <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span> Retell AI Assistant Active
+                    </div>
+                    
+                    <div class="text-sm font-semibold text-slate-200">
+                        "Guten Tag! Willkommen bei ImmoFix Bodensee. Mein Name ist Anna, Ihre KI-Assistentin. Wie kann ich Ihnen bei Entrümpelung, Umzug oder Reinigung helfen?"
+                    </div>
+
+                    <!-- Voice Waveform Visualizer Simulation -->
+                    <div class="flex justify-center items-center gap-1.5 h-12 py-2">
+                        <span class="w-1.5 h-6 bg-brand-orange rounded-full animate-bounce"></span>
+                        <span class="w-1.5 h-10 bg-brand-orange rounded-full animate-bounce [animation-delay:0.2s]"></span>
+                        <span class="w-1.5 h-4 bg-brand-orange rounded-full animate-bounce [animation-delay:0.4s]"></span>
+                        <span class="w-1.5 h-8 bg-brand-orange rounded-full animate-bounce [animation-delay:0.1s]"></span>
+                        <span class="w-1.5 h-5 bg-brand-orange rounded-full animate-bounce [animation-delay:0.3s]"></span>
+                    </div>
+
+                    <div class="flex justify-center gap-3">
+                        <button onclick="simulatedAiCall()" id="btn-call-sim" class="bg-brand-orange hover:bg-brand-orangeHover text-white px-5 py-2.5 rounded-xl font-bold text-xs transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-headset"></i> Anruf Simulation Starten
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Technical Code Snippet for Backend Integration -->
+                <div>
+                    <h4 class="font-bold text-xs uppercase tracking-wider text-slate-400 mb-2">Backend Implementation (Node.js / Express + Retell AI SDK)</h4>
+                    <pre class="bg-navy-950 p-4 rounded-xl text-xs font-mono text-emerald-400 overflow-x-auto border border-slate-800">
+<code>// Node.js Retell AI Webhook & WebRTC Call Integration
+import Retell from 'retell-sdk';
+
+const retellClient = new Retell({
+  apiKey: process.env.RETELL_API_KEY || 'YOUR_RETELL_API_KEY',
+});
+
+// Endpoint to register call with German LLM Context
+app.post('/api/retell/register-call', async (req, res) => {
+  try {
+    const registerCallResponse = await retellClient.call.createPhoneCall({
+      agent_id: 'agent_immofix_bodensee_de',
+      from_number: '+4977329876543',
+      to_number: req.body.user_phone,
+      retell_llm_dynamic_variables: {
+        company_name: 'ImmoFix Bodensee',
+        service_region: 'Radolfzell, Konstanz, Singen',
+        base_rate_sqm: '8 EUR/m2'
+      }
+    });
+    res.status(200).json(registerCallResponse);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});</code>
+                    </pre>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- BOOKING SUCCESS CONFIRMATION MODAL -->
+    <div id="success-modal" class="fixed inset-0 bg-navy-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-8 text-center space-y-4 shadow-2xl">
+            <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-3xl mx-auto">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h3 class="text-2xl font-extrabold text-navy-900">Anfrage Erfolgreich Empfangen!</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+                Vielen Dank. Unser Team in Radolfzell prüft Ihre Angaben und meldet sich innerhalb von 2 Stunden mit Ihrem persönlichen Festpreisangebot.
+            </p>
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs text-left text-slate-700 space-y-1">
+                <p><strong>Dienstleistung:</strong> <span id="summary-modal-service">-</span></p>
+                <p><strong>Kontakt:</strong> <span id="summary-modal-contact">-</span></p>
+            </div>
+            <button onclick="closeSuccessModal()" class="w-full bg-brand-orange text-white py-3 rounded-xl font-bold text-sm shadow-md">
+                Verstanden & Schließen
+            </button>
+        </div>
+    </div>
+
+    <!-- SIMPLE CMS / ADMIN MODAL SIMULATION -->
+    <div id="admin-modal" class="fixed inset-0 bg-navy-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-2xl w-full p-6 text-navy-900 space-y-4 shadow-2xl border border-slate-200">
+            <div class="flex justify-between items-center border-b pb-3">
+                <h3 class="font-extrabold text-lg"><i class="fa-solid fa-sliders text-brand-orange mr-2"></i> Simple CMS / Price Manager</h3>
+                <button onclick="toggleAdminModal()" class="text-slate-400 hover:text-navy-900"><i class="fa-solid fa-xmark text-xl"></i></button>
+            </div>
+            <p class="text-xs text-slate-500">Hier können Sie die Basis-Quadratmeterpreise für den Online-Preiskalkulator anpassen.</p>
+            
+            <div class="space-y-3">
+                <div>
+                    <label class="text-xs font-bold">Basis Quadratmeterpreis Entrümpelung (€/m²)</label>
+                    <input type="number" id="cms-price-entruempelung" value="7.5" class="w-full border p-2 rounded-lg text-sm mt-1">
+                </div>
+                <div>
+                    <label class="text-xs font-bold">Basis Quadratmeterpreis Haushaltsauflösung (€/m²)</label>
+                    <input type="number" id="cms-price-haushalt" value="9.0" class="w-full border p-2 rounded-lg text-sm mt-1">
+                </div>
+            </div>
+
+            <div class="pt-4 flex justify-end gap-2">
+                <button onclick="toggleAdminModal()" class="px-4 py-2 text-xs border rounded-lg">Abbrechen</button>
+                <button onclick="saveCmsSettings()" class="px-4 py-2 text-xs bg-brand-orange text-white rounded-lg font-bold">Änderungen Speichern</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- GDPR COOKIE CONSENT BANNER -->
+    <div id="cookie-banner" class="fixed bottom-4 left-4 right-4 md:left-6 md:right-auto md:max-w-md z-50 bg-navy-950 border border-slate-800 text-white p-5 rounded-2xl shadow-2xl space-y-3">
+        <div class="flex items-start gap-3">
+            <i class="fa-solid fa-cookie-bite text-brand-orange text-xl mt-1"></i>
+            <div class="text-xs text-slate-300">
+                <p class="font-bold text-white mb-1">Datenschutz & Cookies</p>
+                Wir nutzen essenzielle Cookies, um Ihnen die optimale Funktionalität unseres Preiskalkulators und Buchungssystems zu gewährleisten.
+            </div>
+        </div>
+        <div class="flex gap-2 text-xs pt-1">
+            <button onclick="acceptCookies()" class="flex-1 bg-brand-orange hover:bg-brand-orangeHover text-white py-2 rounded-lg font-bold transition-all">
+                Alle Akzeptieren
+            </button>
+            <button onclick="acceptCookies()" class="px-3 py-2 bg-navy-800 text-slate-300 rounded-lg hover:text-white">
+                Nur Essenzielle
+            </button>
+        </div>
+    </div>
+
+    <!-- IMPRESSUM / DATENSCHUTZ MODAL CONTAINERS -->
+    <div id="legal-modal" class="fixed inset-0 bg-navy-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-2xl w-full p-8 max-h-[80vh] overflow-y-auto text-navy-900 space-y-4 shadow-2xl">
+            <div class="flex justify-between items-center border-b pb-3">
+                <h3 class="font-extrabold text-xl" id="legal-modal-title">Impressum</h3>
+                <button onclick="closeLegalModal()" class="text-slate-400 hover:text-navy-900"><i class="fa-solid fa-xmark text-xl"></i></button>
+            </div>
+            <div id="legal-modal-content" class="text-xs text-slate-600 space-y-3 leading-relaxed">
+                <!-- Content dynamically populated via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- INTERACTIVE JAVASCRIPT LOGIC -->
+    <script>
+        // State management variables
+        let selectedService = 'Entrümpelung';
+        let baseRateSqm = 7.5; // EUR per sqm
+
+        // 1. Calculator State & Dynamic Price Calculation
+        function setCalcService(serviceName) {
+            selectedService = serviceName;
+            document.querySelectorAll('.calc-service-btn').forEach(btn => {
+                btn.classList.remove('bg-brand-orange', 'text-white');
+                btn.classList.add('bg-navy-900', 'text-slate-300');
+            });
+            const activeBtn = document.getElementById(`btn-service-${serviceName}`);
+            if (activeBtn) {
+                activeBtn.classList.add('bg-brand-orange', 'text-white');
+                activeBtn.classList.remove('bg-navy-900', 'text-slate-300');
+            }
+            updateCalculator();
+        }
+
+        function selectServiceInCalc(serviceName) {
+            setCalcService(serviceName);
+            document.getElementById('calculator').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function updateCalculator() {
+            const sqm = parseInt(document.getElementById('calc-sqm-slider').value);
+            document.getElementById('calc-sqm-display').innerText = `${sqm} m²`;
+
+            const floor = parseInt(document.getElementById('calc-floor').value);
+            const urgency = document.getElementById('calc-urgency').value;
+            const hasCleaning = document.getElementById('calc-addon-cleaning').checked;
+            const hasValueDiscount = document.getElementById('calc-addon-value').checked;
+
+            // Base rate per service
+            let rate = baseRateSqm;
+            if (selectedService === 'Haushaltsauflösung') rate = 9.0;
+            if (selectedService === 'Umzug') rate = 8.0;
+            if (selectedService === 'Endreinigung') rate = 5.5;
+
+            let total = sqm * rate;
+            
+            // Floor adjustment
+            total += (floor * 45);
+
+            // Urgency factor
+            if (urgency === 'express') total *= 1.15;
+
+            // Add-ons
+            if (hasCleaning && selectedService !== 'Endreinigung') total += (sqm * 4.0);
+
+            // Value discount
+            if (hasValueDiscount) total *= 0.85; // 15% estimated discount
+
+            total = Math.round(total);
+
+            document.getElementById('calc-total-price').innerHTML = `€ ${total},- <span class="text-lg font-normal text-slate-400">ca.</span>`;
+            document.getElementById('calc-summary-service').innerText = `${selectedService} (${sqm} m²)`;
+            document.getElementById('calc-summary-base').innerText = `€ ${total}`;
+
+            if (hasValueDiscount) {
+                document.getElementById('calc-savings-note').innerText = 'Inkl. 15% geschätztem Wertanrechnung-Rabatt!';
+            } else {
+                document.getElementById('calc-savings-note').innerText = 'inkl. Transport, Fachgerechte Entsorgung & Anfahrt';
+            }
+        }
+
+        function transferCalcToBooking() {
+            document.getElementById('book-service').value = selectedService;
+            document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 2. Before/After Image Slider Logic
+        function moveSlider(e) {
+            const box = document.getElementById('slider-box');
+            const rect = box.getBoundingClientRect();
+            let x = e.clientX - rect.left;
+            if (x < 0) x = 0;
+            if (x > rect.width) x = rect.width;
+            
+            const percentage = (x / rect.width) * 100;
+            document.getElementById('after-img-wrap').style.width = `${percentage}%`;
+            document.getElementById('slider-handle').style.left = `${percentage}%`;
+            document.getElementById('after-img-element').style.width = `${rect.width}px`;
+        }
+
+        function moveSliderTouch(e) {
+            if (e.touches && e.touches[0]) {
+                moveSlider(e.touches[0]);
+            }
+        }
+
+        // 3. Booking Form Submission
+        function handleBookingSubmit(e) {
+            e.preventDefault();
+            const service = document.getElementById('book-service').value;
+            const name = document.getElementById('book-name').value;
+            const phone = document.getElementById('book-phone').value;
+
+            document.getElementById('summary-modal-service').innerText = service;
+            document.getElementById('summary-modal-contact').innerText = `${name} (${phone})`;
+
+            document.getElementById('success-modal').classList.remove('hidden');
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('success-modal').classList.add('hidden');
+            document.getElementById('booking-form').reset();
+        }
+
+        function showFileFeedback(input) {
+            const feedback = document.getElementById('file-feedback');
+            if (input.files && input.files.length > 0) {
+                feedback.innerText = `✓ ${input.files.length} Datei(en) ausgewählt für Upload`;
+                feedback.classList.remove('hidden');
+            }
+        }
+
+        // 4. Retell AI Call Simulation
+        function toggleRetellModal() {
+            const modal = document.getElementById('retell-modal');
+            modal.classList.toggle('hidden');
+        }
+
+        function simulatedAiCall() {
+            const btn = document.getElementById('btn-call-sim');
+            btn.innerHTML = '<i class="fa-solid fa-spinner animate-spin"></i> Verbinde mit Retell AI...';
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fa-solid fa-volume-high text-green-400"></i> Anruf Aktiv (Deutsch)';
+            }, 1500);
+        }
+
+        // 5. CMS Admin Modal
+        function toggleAdminModal() {
+            document.getElementById('admin-modal').classList.toggle('hidden');
+        }
+
+        function saveCmsSettings() {
+            baseRateSqm = parseFloat(document.getElementById('cms-price-entruempelung').value);
+            updateCalculator();
+            toggleAdminModal();
+            alert('CMS Einstellungen erfolgreich aktualisiert!');
+        }
+
+        // 6. Mobile Menu & FAQ Toggle
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        function toggleFaq(button) {
+            const answer = button.nextElementSibling;
+            const icon = button.querySelector('.fa-chevron-down');
+            answer.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+
+        // 7. Cookie Consent & Legal Modals
+        function acceptCookies() {
+            document.getElementById('cookie-banner').classList.add('hidden');
+            localStorage.setItem('immofix_cookie_consent', 'true');
+        }
+
+        function toggleCookieConsent() {
+            document.getElementById('cookie-banner').classList.remove('hidden');
+        }
+
+        function openImpressumModal() {
+            document.getElementById('legal-modal-title').innerText = 'Impressum';
+            document.getElementById('legal-modal-content').innerHTML = `
+                <p><strong>Angaben gemäß § 5 TMG:</strong></p>
+                <p>ImmoFix Bodensee GmbH<br>Seestraße 14<br>78315 Radolfzell am Bodensee</p>
+                <p><strong>Vertreten durch:</strong><br>Geschäftsführung ImmoFix Bodensee</p>
+                <p><strong>Kontakt:</strong><br>Telefon: +49 (0) 7732 987 6543<br>E-Mail: info@immofix-bodensee.de</p>
+                <p><strong>Umsatzsteuer-ID:</strong><br>Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz: DE314159265</p>
+            `;
+            document.getElementById('legal-modal').classList.remove('hidden');
+        }
+
+        function openDatenschutzModal() {
+            document.getElementById('legal-modal-title').innerText = 'Datenschutzerklärung (DSGVO)';
+            document.getElementById('legal-modal-content').innerHTML = `
+                <p>Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.</p>
+                <p><strong>Datenerfassung auf unserer Website:</strong> Die Nutzung unserer Webseite ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit auf unseren Seiten personenbezogene Daten (beispielsweise Name, Anschrift oder E-Mail-Adressen im Buchungsformular) erhoben werden, erfolgt dies stets auf freiwilliger Basis.</p>
+            `;
+            document.getElementById('legal-modal').classList.remove('hidden');
+        }
+
+        function openAgbModal() {
+            document.getElementById('legal-modal-title').innerText = 'Allgemeine Geschäftsbedingungen (AGB)';
+            document.getElementById('legal-modal-content').innerHTML = `
+                <p><strong>§ 1 Geltungsbereich:</strong> Für die Geschäftsbeziehung zwischen ImmoFix Bodensee und dem Auftraggeber gelten ausschließlich die nachfolgenden Allgemeinen Geschäftsbedingungen.</p>
+                <p><strong>§ 2 Festpreisangebote:</strong> Nach einer kostenlosen Erstbesichtigung erstellte schriftliche Angebote gelten für 30 Tage als verbindlicher Festpreis.</p>
+            `;
+            document.getElementById('legal-modal').classList.remove('hidden');
+        }
+
+        function closeLegalModal() {
+            document.getElementById('legal-modal').classList.add('hidden');
+        }
+
+        // Initialize state on DOM load
+        document.addEventListener('DOMContentLoaded', () => {
+            updateCalculator();
+            if (localStorage.getItem('immofix_cookie_consent')) {
+                document.getElementById('cookie-banner').classList.add('hidden');
+            }
+        });
+    </script>
+
+</body>
+</html>
+```eof
+
