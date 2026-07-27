@@ -1234,7 +1234,7 @@ app.post('/api/retell/register-call', async (req, res) => {
   try {
     const registerCallResponse = await retellClient.call.createPhoneCall({
       agent_id: 'agent_immofix_bodensee_de',
-      from_number: '+4977329876543',
+      from_number: '+4917663762574',
       to_number: req.body.user_phone,
       retell_llm_dynamic_variables: {
         company_name: 'ImmoFix Bodensee',
