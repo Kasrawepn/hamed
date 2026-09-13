@@ -167,6 +167,20 @@
               "@type": "Service",
               "name": "Endreinigung & Wohnungsübergabe"
             }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Hausmeisterservice & Kleinreparaturen"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Kleine Elektroarbeiten"
+            }
           }
         ]
       }
@@ -484,7 +498,50 @@
                     </a>
                 </div>
 
-                <!-- Service 6: Wertanrechnung -->
+
+                <!-- Service 6: Hausmeisterservice -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-14 h-14 bg-cyan-100 rounded-2xl flex items-center justify-center text-cyan-700 text-2xl mb-6 group-hover:bg-cyan-700 group-hover:text-white transition-colors duration-300">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-navy-900 mb-3">Hausmeisterservice & Kleinreparaturen</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            Zuverlässige Unterstützung rund um Haus, Wohnung und Objektpflege – ideal für Eigentümer, Vermieter, Hausverwaltungen und Privathaushalte.
+                        </p>
+                        <ul class="text-xs text-slate-500 space-y-2 mb-6">
+                            <li><i class="fa-solid fa-check text-brand-orange mr-2"></i>Kleine Reparaturen & Montagearbeiten</li>
+                            <li><i class="fa-solid fa-check text-brand-orange mr-2"></i>Objektkontrolle & allgemeine Hausmeisterarbeiten</li>
+                            <li><i class="fa-solid fa-check text-brand-orange mr-2"></i>Flexible Hilfe nach Absprache</li>
+                        </ul>
+                    </div>
+                    <a href="#booking" class="inline-flex items-center gap-2 text-brand-orange font-bold text-sm hover:gap-3 transition-all">
+                        Hausmeisterservice anfragen <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Service 7: Kleine Elektroarbeiten -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-14 h-14 bg-yellow-100 rounded-2xl flex items-center justify-center text-yellow-600 text-2xl mb-6 group-hover:bg-yellow-500 group-hover:text-white transition-colors duration-300">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-navy-900 mb-3">Kleine Elektroarbeiten</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            Praktische Hilfe bei einfachen elektrischen Montage- und Austauscharbeiten im Haushalt, soweit diese ohne zulassungspflichtige Elektroinstallation durchgeführt werden dürfen.
+                        </p>
+                        <ul class="text-xs text-slate-500 space-y-2 mb-6">
+                            <li><i class="fa-solid fa-check text-brand-orange mr-2"></i>Lampen & Leuchten montieren</li>
+                            <li><i class="fa-solid fa-check text-brand-orange mr-2"></i>Leuchtmittel und einfache Elektrokomponenten austauschen</li>
+                            <li><i class="fa-solid fa-check text-brand-orange mr-2"></i>Kleine Montagearbeiten nach Absprache</li>
+                        </ul>
+                    </div>
+                    <a href="#booking" class="inline-flex items-center gap-2 text-brand-orange font-bold text-sm hover:gap-3 transition-all">
+                        Elektroarbeiten anfragen <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Service 8: Wertanrechnung -->
                 <div class="bg-gradient-to-br from-navy-900 to-navy-800 text-white rounded-2xl p-8 shadow-xl flex flex-col justify-between relative overflow-hidden">
                     <div class="relative z-10">
                         <div class="w-14 h-14 bg-brand-orange/20 rounded-2xl flex items-center justify-center text-brand-orange text-2xl mb-6">
@@ -529,6 +586,8 @@
                                 <option value="Haushaltsauflösung">Haushaltsauflösung / Nachlass</option>
                                 <option value="Umzug">Umzug & Transport</option>
                                 <option value="Endreinigung">Endreinigung / Grundreinigung</option>
+                                <option value="Hausmeisterservice">Hausmeisterservice / Kleinreparaturen</option>
+                                <option value="Kleine Elektroarbeiten">Kleine Elektroarbeiten</option>
                                 <option value="Sonstiges">Sonstiges / Anfrage</option>
                             </select>
                         </div>
