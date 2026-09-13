@@ -185,7 +185,7 @@
             </div>
             <div class="flex items-center gap-6">
                 <a href="tel:+4917663762574" class="hover:text-brand-orange transition-colors"><i class="fa-solid fa-phone text-brand-orange mr-1"></i> +49 (0) 17663762574</a>
-                <a href="https://wa.me/4977329876543?text=Hallo%20ImmoFix%20Bodensee,%20ich%20ben%C3%B6tige%20ein%20Angebot." target="_blank" class="hover:text-green-400 transition-colors hidden sm:inline-flex items-center gap-1">
+                <a href="https://wa.me/4977329876543?text=Hallo%20Shayna%20Bodensee,%20ich%20ben%C3%B6tige%20ein%20Angebot." target="_blank" class="hover:text-green-400 transition-colors hidden sm:inline-flex items-center gap-1">
                     <i class="fa-brands fa-whatsapp text-green-500"></i> WhatsApp Direkt
                 </a>
             </div>
@@ -201,7 +201,7 @@
                     <i class="fa-solid fa-house-circle-check"></i>
                 </div>
                 <div>
-                    <span class="font-extrabold text-2xl tracking-tight text-navy-900 block leading-none">ImmoFix</span>
+                    <span class="font-extrabold text-2xl tracking-tight text-navy-900 block leading-none">Shayna</span>
                     <span class="text-xs font-semibold text-brand-orange uppercase tracking-widest block mt-0.5">Bodensee</span>
                 </div>
             </a>
@@ -1151,7 +1151,7 @@
         </button>
 
         <!-- WhatsApp Floating Button -->
-        <a href="https://wa.me/4917663762574?text=Hallo%20ImmoFix%20Bodensee,%20ich%20habe%20eine%20Anfrage%20f%C3%BCr%20eine%20Entr%C3%BCmpelung/Umzug." target="_blank" class="w-13 h-13 bg-green-500 text-white rounded-full p-3.5 shadow-2xl hover:scale-110 transition-transform relative group flex items-center justify-center">
+        <a href="https://wa.me/4917663762574?text=Hallo%20Shayna%20Bodensee,%20ich%20habe%20eine%20Anfrage%20f%C3%BCr%20eine%20Entr%C3%BCmpelung/Umzug." target="_blank" class="w-13 h-13 bg-green-500 text-white rounded-full p-3.5 shadow-2xl hover:scale-110 transition-transform relative group flex items-center justify-center">
             <i class="fa-brands fa-whatsapp text-2xl"></i>
             <span class="absolute right-14 bg-green-900 text-white text-[11px] font-bold py-1 px-2.5 rounded-lg whitespace-nowrap shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
                 WhatsApp Chat
@@ -1232,7 +1232,7 @@ const retellClient = new Retell({
 app.post('/api/retell/register-call', async (req, res) => {
   try {
     const registerCallResponse = await retellClient.call.createPhoneCall({
-      agent_id: 'agent_immofix_bodensee_de',
+      agent_id: 'agent_Shayna_bodensee_de',
       from_number: '+4917663762574',
       to_number: req.body.user_phone,
       retell_llm_dynamic_variables: {
@@ -1493,7 +1493,7 @@ app.post('/api/retell/register-call', async (req, res) => {
         // 7. Cookie Consent & Legal Modals
         function acceptCookies() {
             document.getElementById('cookie-banner').classList.add('hidden');
-            localStorage.setItem('immofix_cookie_consent', 'true');
+            localStorage.setItem('Shayna_cookie_consent', 'true');
         }
 
         function toggleCookieConsent() {
@@ -1537,7 +1537,7 @@ app.post('/api/retell/register-call', async (req, res) => {
         // Initialize state on DOM load
         document.addEventListener('DOMContentLoaded', () => {
             updateCalculator();
-            if (localStorage.getItem('immofix_cookie_consent')) {
+            if (localStorage.getItem('Shayna_cookie_consent')) {
                 document.getElementById('cookie-banner').classList.add('hidden');
             }
         });
