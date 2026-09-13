@@ -338,24 +338,6 @@
                         </div>
                     </div>
 
-                    <!-- Retell AI Receptionist Quick Trigger Badge -->
-                    <div class="mt-4 bg-navy-800/90 border border-slate-700 rounded-xl p-4 flex items-center justify-between shadow-xl">
-                        <div class="flex items-center gap-3">
-                            <div class="relative">
-                                <div class="w-3 h-3 bg-green-500 rounded-full animate-ping absolute top-0 right-0"></div>
-                                <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 font-bold">
-                                    <i class="fa-solid fa-headset"></i>
-                                </div>
-                            </div>
-                            <div>
-                                <span class="text-xs text-slate-400 font-semibold block">24/7 KI-Telefonassistent</span>
-                                <span class="text-sm font-bold text-white">Sofort-Auskunft am Telefon</span>
-                            </div>
-                        </div>
-                        <button onclick="toggleRetellModal()" class="bg-white/10 hover:bg-white/20 text-white px-3 py-1.5 rounded-lg text-xs font-bold transition-all border border-white/10 flex items-center gap-1.5">
-                            <i class="fa-solid fa-microphone text-brand-orange"></i> Testen
-                        </button>
-                    </div>
 
                 </div>
 
@@ -928,7 +910,6 @@
                         <li><button onclick="openDatenschutzModal()" class="hover:text-brand-orange transition-colors">Datenschutz (DSGVO)</button></li>
                         <li><button onclick="openAgbModal()" class="hover:text-brand-orange transition-colors">AGB</button></li>
                         <li><button onclick="toggleCookieConsent()" class="hover:text-brand-orange transition-colors">Cookie-Einstellungen</button></li>
-                        <li><button onclick="toggleRetellModal()" class="hover:text-brand-orange transition-colors text-brand-orange"><i class="fa-solid fa-robot mr-1"></i> Retell AI API Docs</button></li>
                     </ul>
                 </div>
 
@@ -948,14 +929,6 @@
     <!-- STICKY FLOATING ACTION BUTTONS (MOBILE & DESKTOP) -->
     <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
         
-        <!-- Retell AI Voice Call Trigger Button -->
-        <button onclick="toggleRetellModal()" class="w-13 h-13 bg-navy-900 text-white rounded-full p-3.5 shadow-2xl border-2 border-brand-orange hover:scale-110 transition-transform relative group flex items-center justify-center">
-            <i class="fa-solid fa-robot text-xl text-brand-orange"></i>
-            <span class="absolute right-14 bg-navy-900 text-white text-[11px] font-bold py-1 px-2.5 rounded-lg whitespace-nowrap shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
-                AI Telefondienst Testen
-            </span>
-        </button>
-
         <!-- WhatsApp Floating Button -->
         <a href="https://wa.me/4917663762574?text=Hallo%20Shayna%20Bodensee,%20ich%20habe%20eine%20Anfrage%20f%C3%BCr%20eine%20Entr%C3%BCmpelung/Umzug." target="_blank" class="w-13 h-13 bg-green-500 text-white rounded-full p-3.5 shadow-2xl hover:scale-110 transition-transform relative group flex items-center justify-center">
             <i class="fa-brands fa-whatsapp text-2xl"></i>
@@ -972,92 +945,6 @@
             </span>
         </a>
 
-    </div>
-
-    <!-- RETELL AI RECEPTIONIST MODAL / INTERACTIVE CODE & VOICE DEMO -->
-    <div id="retell-modal" class="fixed inset-0 bg-navy-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-navy-900 border border-slate-700 w-full max-w-3xl rounded-3xl overflow-hidden shadow-2xl text-white">
-            
-            <!-- Modal Header -->
-            <div class="p-6 bg-navy-950 border-b border-slate-800 flex justify-between items-center">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl bg-brand-orange/20 text-brand-orange flex items-center justify-center font-bold">
-                        <i class="fa-solid fa-robot"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-extrabold text-lg">Retell AI Telefondienst Integration</h3>
-                        <p class="text-xs text-slate-400">Deutschsprachiger KI-Telefonassistent für Shayna-Bodensee.de</p>
-                    </div>
-                </div>
-                <button onclick="toggleRetellModal()" class="text-slate-400 hover:text-white text-xl">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-
-            <!-- Modal Content Tabs -->
-            <div class="p-6 space-y-6 max-h-[80vh] overflow-y-auto">
-                
-                <!-- Live Voice Simulation Box -->
-                <div class="bg-navy-950 p-6 rounded-2xl border border-slate-800 text-center space-y-4">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 text-green-400 text-xs font-bold border border-green-500/20">
-                        <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span> Retell AI Assistant Active
-                    </div>
-                    
-                    <div class="text-sm font-semibold text-slate-200">
-                        "Guten Tag! Willkommen bei Shayna-Bodensee.de. Mein Name ist Anna, Ihre KI-Assistentin. Wie kann ich Ihnen bei Entrümpelung, Umzug oder Reinigung helfen?"
-                    </div>
-
-                    <!-- Voice Waveform Visualizer Simulation -->
-                    <div class="flex justify-center items-center gap-1.5 h-12 py-2">
-                        <span class="w-1.5 h-6 bg-brand-orange rounded-full animate-bounce"></span>
-                        <span class="w-1.5 h-10 bg-brand-orange rounded-full animate-bounce [animation-delay:0.2s]"></span>
-                        <span class="w-1.5 h-4 bg-brand-orange rounded-full animate-bounce [animation-delay:0.4s]"></span>
-                        <span class="w-1.5 h-8 bg-brand-orange rounded-full animate-bounce [animation-delay:0.1s]"></span>
-                        <span class="w-1.5 h-5 bg-brand-orange rounded-full animate-bounce [animation-delay:0.3s]"></span>
-                    </div>
-
-                    <div class="flex justify-center gap-3">
-                        <button onclick="simulatedAiCall()" id="btn-call-sim" class="bg-brand-orange hover:bg-brand-orangeHover text-white px-5 py-2.5 rounded-xl font-bold text-xs transition-all flex items-center gap-2">
-                            <i class="fa-solid fa-headset"></i> Anruf Simulation Starten
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Technical Code Snippet for Backend Integration -->
-                <div>
-                    <h4 class="font-bold text-xs uppercase tracking-wider text-slate-400 mb-2">Backend Implementation (Node.js / Express + Retell AI SDK)</h4>
-                    <pre class="bg-navy-950 p-4 rounded-xl text-xs font-mono text-emerald-400 overflow-x-auto border border-slate-800">
-<code>// Node.js Retell AI Webhook & WebRTC Call Integration
-import Retell from 'retell-sdk';
-
-const retellClient = new Retell({
-  apiKey: process.env.RETELL_API_KEY || 'YOUR_RETELL_API_KEY',
-});
-
-// Endpoint to register call with German LLM Context
-app.post('/api/retell/register-call', async (req, res) => {
-  try {
-    const registerCallResponse = await retellClient.call.createPhoneCall({
-      agent_id: 'agent_Shayna_bodensee_de',
-      from_number: '+4917663762574',
-      to_number: req.body.user_phone,
-      retell_llm_dynamic_variables: {
-        company_name: 'Shayna-Bodensee.de',
-        service_region: 'Radolfzell, Konstanz, Singen',
-        base_rate_sqm: '8 EUR/m2'
-      }
-    });
-    res.status(200).json(registerCallResponse);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});</code>
-                    </pre>
-                </div>
-
-            </div>
-
-        </div>
     </div>
 
     <!-- BOOKING SUCCESS CONFIRMATION MODAL -->
@@ -1256,20 +1143,6 @@ app.post('/api/retell/register-call', async (req, res) => {
                 feedback.innerText = `✓ ${input.files.length} Datei(en) ausgewählt für Upload`;
                 feedback.classList.remove('hidden');
             }
-        }
-
-        // 4. Retell AI Call Simulation
-        function toggleRetellModal() {
-            const modal = document.getElementById('retell-modal');
-            modal.classList.toggle('hidden');
-        }
-
-        function simulatedAiCall() {
-            const btn = document.getElementById('btn-call-sim');
-            btn.innerHTML = '<i class="fa-solid fa-spinner animate-spin"></i> Verbinde mit Retell AI...';
-            setTimeout(() => {
-                btn.innerHTML = '<i class="fa-solid fa-volume-high text-green-400"></i> Anruf Aktiv (Deutsch)';
-            }, 1500);
         }
 
         // 5. CMS Admin Modal
